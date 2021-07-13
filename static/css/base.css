@@ -1,0 +1,29 @@
+.text-center{
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+.navbar {
+  overflow: hidden;
+  width: 100%;
+}
+.navitems{
+  font-size:1.6em;
+  color:white;
+}
+.jumbotron-bar{
+  background:transparent;
+}
+.navbottom{
+  margin-bottom:0;
+}
+.navbar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+.navbar a:active {
+  background-color: #232323;
+  color: blue;
+}

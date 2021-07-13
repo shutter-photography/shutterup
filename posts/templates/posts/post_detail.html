@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block content %}
+  <h3> Iamge Info</h3>
+<div class="jumbotron">
+  <div class="container">
+    <p><strong> <em>Name: {{ image_detail.Name }}</em> </strong></p>
+    <p><strong> <em> Post By: {{ user.username }}</em> </strong></p>
+  </div>
+    <a class = 'btn btn-secondary' href="{% url 'posts:delete' pk=image_detail.pk %}">Delete</a>
+</div>
+
+
+
+{% endblock %}

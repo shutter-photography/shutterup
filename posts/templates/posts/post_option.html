@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="jumbotron">
+  <h2>What's Today??</h2>
+  <ul>
+    <li><h3><a href="{% url 'posts:newpost' %}">New Post</a></h3></li>
+    <li><h3><a href="{% url 'posts:update' %}">New Update</a></h3></li>
+  </ul>
+
+</div>
+
+{% endblock %}

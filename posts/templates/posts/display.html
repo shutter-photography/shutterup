@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+  <h3 id='gallery'>Gallery</h3><hr>
+
+<div class="container">
+  <div class="row">
+
+    {% for photo in images %}
+      <div class="col-lg-6 lg-4">
+        <div class="container-fluid">
+          {% if user.is_superuser %}
+          <a href="{% url 'posts:info' pk=photo.pk %}"><img src="{{photo.new_image.url}}" class="img-thumbnail img-fluid"/></a>
+          {% else %}
+          <img src="{{photo.new_image.url}}" class="img-thumbnail img-fluid"/>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+</div>
+
+
+{% endblock %}

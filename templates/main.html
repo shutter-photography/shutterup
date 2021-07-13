@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+
+      Shutterup_photography
+
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/third.css' %}">
+  </head>
+  <body class='Body'>
+
+    <div class="container text-center header">
+      <h2>SHUTTERUP_PHOTOGRAPHY</h2>
+    </div>
+
+    <nav class='navbar navbar-expand-md navbar-dark bg-default'>
+
+      <a class='nav-item nav-link py-2 navitems' href="{% url 'index' %}"><span class='fa fa-home'></span> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id='navbarTogglerDemo01'>
+        <hr>
+          <a class='nav-item nav-link py-2 navitems' href="{% url 'posts:gallery' %}">Gallery</a><hr class='horizontal'>
+        <a class='nav-item nav-link py-2 navitems' href="{% url 'posts:update_list' %}">Updates</a> <hr class='horizontal'>
+        {% if user.is_superuser %}
+        <a class='nav-item nav-link py-2 navitems' href="{% url 'posts:option' %}">Post</a> <hr class='horizontal'>
+          <a class='nav-item nav-link py-2 navitems' href="{% url 'admin:index' %}">Admin</a> <hr class='horizontal'>
+        {% else %}
+        {% endif %}
+
+
+
+        <div class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+              <div class='container'>
+              <a  class='nav-item nav-link py-2 navitems' href="mailto:shutteruphotography8203@gmail.com"><span class='fa fa-envelope'></span></a>  </div>
+              <div class='container'>
+              <a  class='nav-item nav-link py-2 navitems'href="https://instagram.com/shutterup_p_hotography" target='_blank'><span class='fa fa-instagram'></span></a>
+              </div>
+              <a class='nav-item nav-link py-2 navitems' href="{% url 'accounts:logout' %}">Logout</a>
+            {% else %}
+              <a class='nav-item nav-link py-2 navitems' href="{% url 'accounts:login' %}">Login</a>
+              <a class='nav-item nav-link py-2 navitems' href="{% url 'accounts:signup' %}">signup</a>
+            {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </body>
+
+  <footer>
+
+
+
+  </footer>
+
+
+
+</html>

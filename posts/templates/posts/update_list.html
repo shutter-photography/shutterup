@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="jumbotron">
+  <h2>UPDATES</h2>
+  <hr>
+  {% for post in update_list %}
+  <div class="container">
+    <h3><strong><a href="{% url 'posts:update_detail' pk=post.pk %}">{{ post.Title }}</a></strong></h3>
+    <div class="date">
+      <p><strong>Published On :  {{ post.published_date}} </strong></p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

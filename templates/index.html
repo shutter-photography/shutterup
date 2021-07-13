@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="jumbotron text-center">
+  {% if user.is_authenticated %}
+    <h3 class='welcome'>Welcome {{ user.username }}!</h3>
+  {% else %}
+  {% endif %}
+</div>
+
+<div class='jumbotron text-center jumbotron-image'>
+  <p class='gallery-link'><a href="{% url 'posts:gallery' %}">View More on Gallery</a></p> <hr>
+<div class="w3-content w3-display-container"> <br>
+  <div class='container text-center'>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/abstract1.jpg"> </div>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/waterdrop.jpg"></div>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/mr.black.jpg"></div>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/abstract2.jpg"></div>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/waterdrop2.jpg"></div>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/sunset.jpg"></div>
+  <div class='col-lg-12'><img class="mySlides img-thumbnail img-fluid" src="static/images/flower.jpg"></div>
+  </div>
+
+</div>
+<br>
+<div class="content" onclick="topFunction()">
+  <a class= 'top'><img  style = width='20px' height='40px' src='https://www.pngkey.com/png/full/355-3553692_jump-to-the-top-scroll-to-top-icon.png' alt="Top"/img></a>
+</div>
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "inline";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+  <script>
+  //Get the button
+  var mybutton = document.getElementsByClassName("top");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+
+
+
+
+{% endblock %}

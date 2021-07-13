@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="container">
+
+  <h3>Updates Form</h3>
+
+  <form  method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class='btn btn=success'>Post</button>
+    {% endbuttons %}
+  </form>
+
+</div>
+{% endblock %}
